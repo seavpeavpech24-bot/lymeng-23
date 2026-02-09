@@ -1,5 +1,5 @@
 let giftChosen = false;
-const giftAmounts = ['$19.99', '$23.00', '$29.66'];
+const giftAmounts = ['$19.99', '$23.00', '$29.26'];
 let shuffledAmounts = [];
 
 // Shuffle the gift amounts when page loads
