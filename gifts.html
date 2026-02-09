@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Birthday Gifts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gift-box {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gift-box:hover {
+            transform: scale(1.05);
+        }
+        
+        .gift-box.opened .gift-closed {
+            animation: fadeOut 0.3s ease forwards;
+        }
+        
+        .gift-content {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+        }
+        
+        .gift-content.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+        
+        .sparkle {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-100 via-pink-50 to-pink-100 min-h-screen">
+    
+    <div class="container mx-auto px-4 py-8 md:py-12">
+        
+        <!-- Header -->
+        <div class="text-center mb-6 md:mb-12 slide-in px-2 md:px-4">
+            <h1 class="text-2xl md:text-6xl font-bold text-pink-500 mb-2 md:mb-4" style="font-family: 'Pacifico', cursive;">
+                🎁 Choose Your Birthday Gift! 🎁
+            </h1>
+            <p class="text-pink-400 text-sm md:text-xl">Pick ONE gift box to reveal your special present!</p>
+            <p class="text-pink-500 text-base md:text-2xl font-semibold mt-1 md:mt-2">With all my love, Ly Meng! 💕</p>
+        </div>
+        
+        <!-- Gift Boxes Grid -->
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-12 px-3 md:px-4">
+            
+            <!-- Gift Box 1 -->
+            <div class="gift-box-container slide-in" style="animation-delay: 0.2s;">
+                <div class="gift-box relative" onclick="openGift(1)" id="gift-1">
+                    <div class="bg-white rounded-2xl shadow-2xl p-5 md:p-8 h-56 md:h-80 flex flex-col items-center justify-center relative overflow-hidden">
+                        <!-- Unopened State -->
+                        <div class="gift-closed" id="closed-1">
+                            <div class="relative mb-3 md:mb-4">
+                                <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-pink-400 to-pink-500 rounded-2xl shadow-lg mx-auto"></div>
+                                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 md:w-4 h-24 md:h-32 bg-pink-600"></div>
+                                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 w-24 md:w-32 h-3 md:h-4 bg-pink-600"></div>
+                                <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2 w-12 md:w-16 h-5 md:h-6 bg-pink-600 rounded-t-full"></div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl md:text-4xl sparkle">?</div>
+                            </div>
+                            <p class="text-pink-500 font-semibold text-base md:text-lg mt-2 md:mt-4">Mystery Gift #1</p>
+                        </div>
+                        <!-- Opened State -->
+                        <div class="gift-content hidden" id="content-1">
+                            <div class="text-center">
+                                <div class="text-5xl md:text-6xl mb-3 md:mb-4">💰</div>
+                                <div id="amount-1" class="text-4xl md:text-5xl font-bold text-green-500 mb-2">$19.99</div>
+                                <p class="text-pink-400 font-semibold text-sm md:text-base">Cash Gift!</p>
+                                <div class="mt-3 md:mt-4 text-3xl md:text-4xl">🎉</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gift Box 2 -->
+            <div class="gift-box-container slide-in" style="animation-delay: 0.4s;">
+                <div class="gift-box relative" onclick="openGift(2)" id="gift-2">
+                    <div class="bg-white rounded-2xl shadow-2xl p-5 md:p-8 h-56 md:h-80 flex flex-col items-center justify-center relative overflow-hidden">
+                        <!-- Unopened State -->
+                        <div class="gift-closed" id="closed-2">
+                            <div class="relative mb-3 md:mb-4">
+                                <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-purple-400 to-purple-500 rounded-2xl shadow-lg mx-auto"></div>
+                                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 md:w-4 h-24 md:h-32 bg-purple-600"></div>
+                                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 w-24 md:w-32 h-3 md:h-4 bg-purple-600"></div>
+                                <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2 w-12 md:w-16 h-5 md:h-6 bg-purple-600 rounded-t-full"></div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl md:text-4xl sparkle" style="animation-delay: 0.5s;">?</div>
+                            </div>
+                            <p class="text-purple-500 font-semibold text-base md:text-lg mt-2 md:mt-4">Mystery Gift #2</p>
+                        </div>
+                        <!-- Opened State -->
+                        <div class="gift-content hidden" id="content-2">
+                            <div class="text-center">
+                                <div class="text-5xl md:text-6xl mb-3 md:mb-4">💵</div>
+                                <div id="amount-2" class="text-4xl md:text-5xl font-bold text-green-500 mb-2">$23.00</div>
+                                <p class="text-purple-400 font-semibold text-sm md:text-base">Cash Gift!</p>
+                                <div class="mt-3 md:mt-4 text-3xl md:text-4xl">✨</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gift Box 3 -->
+            <div class="gift-box-container slide-in" style="animation-delay: 0.6s;">
+                <div class="gift-box relative" onclick="openGift(3)" id="gift-3">
+                    <div class="bg-white rounded-2xl shadow-2xl p-5 md:p-8 h-56 md:h-80 flex flex-col items-center justify-center relative overflow-hidden">
+                        <!-- Unopened State -->
+                        <div class="gift-closed" id="closed-3">
+                            <div class="relative mb-3 md:mb-4">
+                                <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-rose-400 to-rose-500 rounded-2xl shadow-lg mx-auto"></div>
+                                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-3 md:w-4 h-24 md:h-32 bg-rose-600"></div>
+                                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 w-24 md:w-32 h-3 md:h-4 bg-rose-600"></div>
+                                <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2 w-12 md:w-16 h-5 md:h-6 bg-rose-600 rounded-t-full"></div>
+                                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-3xl md:text-4xl sparkle" style="animation-delay: 1s;">?</div>
+                            </div>
+                            <p class="text-rose-500 font-semibold text-base md:text-lg mt-2 md:mt-4">Mystery Gift #3</p>
+                        </div>
+                        <!-- Opened State -->
+                        <div class="gift-content hidden" id="content-3">
+                            <div class="text-center">
+                                <div class="text-5xl md:text-6xl mb-3 md:mb-4">💸</div>
+                                <div id="amount-3" class="text-4xl md:text-5xl font-bold text-green-500 mb-2">$29.66</div>
+                                <p class="text-rose-400 font-semibold text-sm md:text-base">Cash Gift!</p>
+                                <div class="mt-3 md:mt-4 text-3xl md:text-4xl">🎊</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Chosen Gift Message (Hidden initially) -->
+        <div id="chosen-message" class="hidden text-center mt-6 md:mt-12 slide-in px-3 md:px-4">
+            <div class="bg-white rounded-2xl shadow-2xl p-5 md:p-8 max-w-md mx-auto">
+                <h2 class="text-xl md:text-3xl font-bold text-pink-500 mb-2 md:mb-4">🎉 Congratulations! 🎉</h2>
+                <p class="text-pink-400 text-sm md:text-lg mb-2">You've chosen your birthday gift!</p>
+                <p class="text-pink-500 text-xs md:text-base">I love you so much, Ly Meng! ❤️</p>
+            </div>
+        </div>
+        
+        <!-- Back Button -->
+        <div class="text-center mt-6 md:mt-8 mb-6">
+            <a href="index.html" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold px-6 md:px-8 py-2 md:py-3 rounded-full shadow-lg transition-all hover:scale-105 text-sm md:text-base">
+                ← Back to Birthday Card
+            </a>
+        </div>
+        
+    </div>
+    
+    <script src="gifts.js"></script>
+</body>
+</html>
